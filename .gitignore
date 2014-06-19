@@ -1,0 +1,5 @@
+/.vagrant/
+
+# Temporary files
+*~
+*.bak

@@ -1,0 +1,28 @@
+---
+- hosts: all
+  vars:
+    php_version: "{{ lookup('env', 'PHP_VERSION' }}"
+  tasks:
+    - name: Install dotdeb key
+      apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
+    - name: Install PHP 5.5 repository
+      apt_repository: repo="deb http://packages.dotdeb.org wheezy-php55 all" state=present
+      when: php_version == "5.5"
+    - name: Install PHP 5.4 repository
+      apt_repository: repo="deb http://packages.dotdeb.org wheezy all" state=present
+      when: php_version == "5.4"
+    - name: Install PHP packages
+      apt: name={{ item }} state=present update_cache=yes
+      with_items:
+        - apache2
+        - php5
+        - php5-mysql
+        - php5-gd
+        - libapache2-mod-php5
+        - mysql-server
+        - python-mysqldb
+    - copy: src=provision/database.sql dest=/tmp
+    - name: Create MySQL database
+      mysql_db: name=typo3 state=present
+    - name: Import MySQL database
+      mysql_db: name=typo3 state=import target=/tmp/database.sql
