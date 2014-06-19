@@ -1,0 +1,15 @@
+{
+    "name": "helmich/typo3-ci-example",
+    "description": "Example package demonstrating CI setup for TYPO3 projects.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Helmich",
+            "email": "typo3@martin-helmich.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    }
+}
