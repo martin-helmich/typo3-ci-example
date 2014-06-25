@@ -1,0 +1,3 @@
+[submodule "src/typo3_src"]
+	path = src/typo3_src
+	url = git://github.com/TYPO3/TYPO3.CMS.git

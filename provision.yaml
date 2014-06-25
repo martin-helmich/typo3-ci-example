@@ -1,8 +1,10 @@
 ---
 - hosts: all
   vars:
-    php_version: "{{ lookup('env', 'PHP_VERSION' }}"
+    php_version: "{{ lookup('env', 'PHP_VERSION') }}"
   tasks:
+    - fail: msg="Please set the PHP_VERSION environment variable."
+      when: php_version == false
     - name: Install dotdeb key
       apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
     - name: Install PHP 5.5 repository

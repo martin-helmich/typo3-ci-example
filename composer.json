@@ -9,7 +9,13 @@
         }
     ],
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-
+    },
+    "require-dev": {
+        "helmich/typo3-typoscript-lint": "*"
+    },
+    "config": {
+        "bin-dir": "bin"
     }
 }
