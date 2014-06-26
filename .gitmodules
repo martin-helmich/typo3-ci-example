@@ -1,3 +1,6 @@
 [submodule "src/typo3_src"]
 	path = src/typo3_src
 	url = git://github.com/TYPO3/TYPO3.CMS.git
+[submodule "src/typo3conf/ext/phpunit"]
+	path = src/typo3conf/ext/phpunit
+	url = git://github.com/TYPO3-extensions/phpunit.git
