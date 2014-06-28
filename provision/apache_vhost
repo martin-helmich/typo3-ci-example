@@ -1,0 +1,31 @@
+# (C) 2014 Martin Helmich <typo3@martin-helmich.de>
+#
+# This file is part of the "Continuous Integration with TYPO3 example" project.
+# See the file named LICENSE.txt distributed with this code for licensing information.
+
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+
+	DocumentRoot /vagrant/src
+	SetEnv VAGRANT 1
+	SetEnv CI 1
+
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	<Directory /vagrant/src>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>

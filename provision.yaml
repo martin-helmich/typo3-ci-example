@@ -2,9 +2,16 @@
 - hosts: all
   vars:
     php_version: "{{ lookup('env', 'PHP_VERSION') }}"
+    typo3_version: "{{ lookup('env', 'TYPO3_VERSION') }}"
+  handlers:
+    - name: restart apache
+      service: name=apache2 state=restarted
   tasks:
-    - fail: msg="Please set the PHP_VERSION environment variable."
-      when: php_version == false
+    - name: Check for required environment variables
+      fail: msg="Please set the PHP_VERSION and TYPO3_VERSION environment variable."
+      when: not php_version or not typo3_version
+
+    # Package installation
     - name: Install dotdeb key
       apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
     - name: Install PHP 5.5 repository
@@ -23,8 +30,17 @@
         - libapache2-mod-php5
         - mysql-server
         - python-mysqldb
+
+    # Database setup
     - copy: src=provision/database.sql dest=/tmp
     - name: Create MySQL database
       mysql_db: name=typo3 state=present
     - name: Import MySQL database
       mysql_db: name=typo3 state=import target=/tmp/database.sql
+
+    # Webserver setup
+    - apache2_module: state=present name={{ item }}
+      with_items: [php5, rewrite, env]
+      notify: [restart apache]
+    - copy: src=provision/apache_vhost dest=/etc/apache2/sites-available/default
+      notify: [restart apache]
