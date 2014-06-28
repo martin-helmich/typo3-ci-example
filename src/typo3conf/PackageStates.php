@@ -486,6 +486,17 @@ return array (
       array (
       ),
     ),
+    'phpunit' => 
+    array (
+      'manifestPath' => '',
+      'composerName' => 'typo3/cms-phpunit',
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/phpunit/',
+      'classesPath' => 'Classes/',
+      'suggestions' => 
+      array (
+      ),
+    ),
     'documentation' => 
     array (
       'manifestPath' => '',
@@ -493,8 +504,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/documentation/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'linkvalidator' => 
     array (
@@ -503,8 +515,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/linkvalidator/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'recycler' => 
     array (
@@ -513,8 +526,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/recycler/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'scheduler' => 
     array (
@@ -523,8 +537,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/scheduler/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'indexed_search_mysql' => 
     array (
@@ -533,8 +548,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/indexed_search_mysql/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'indexed_search' => 
     array (
@@ -543,8 +559,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/indexed_search/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'sys_action' => 
     array (
@@ -553,8 +570,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/sys_action/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'adodb' => 
     array (
@@ -563,8 +581,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/adodb/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'openid' => 
     array (
@@ -573,8 +592,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/openid/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'opendocs' => 
     array (
@@ -583,8 +603,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/opendocs/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'dbal' => 
     array (
@@ -593,8 +614,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/dbal/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'filemetadata' => 
     array (
@@ -603,8 +625,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/filemetadata/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'workspaces' => 
     array (
@@ -613,8 +636,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/workspaces/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
     'feedit' => 
     array (
@@ -623,8 +647,9 @@ return array (
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/feedit/',
       'classesPath' => 'Classes/',
-      'dependencies' => NULL,
-      'suggestions' => NULL,
+      'suggestions' => 
+      array (
+      ),
     ),
   ),
   'version' => 4,
