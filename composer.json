@@ -13,7 +13,8 @@
     "require": {
     },
     "require-dev": {
-        "helmich/typo3-typoscript-lint": "*"
+        "helmich/typo3-typoscript-lint": "*",
+        "squizlabs/php_codesniffer": "*"
     },
     "config": {
         "bin-dir": "bin"
