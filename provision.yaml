@@ -56,3 +56,9 @@
       notify: [restart apache]
     - copy: src=provision/apache_vhost dest=/etc/apache2/sites-available/default
       notify: [restart apache]
+
+    # TYPO3 setup
+    - shell: mkdir -p /vagrant/src/typo3_src-{{ typo3_version }} && cd /vagrant/src/typo3_src-{{ typo3_version }} && wget https://github.com/TYPO3/TYPO3.CMS/archive/{{ typo3_version }}.tar.gz | tar --strip-components=1 -xzf {{ typo3_version }}.tar.gz && chown vagrant . -R
+      args:
+        creates: /vagrant/src/typo3_src-{{ typo3_version }}
+    - file: path=/vagrant/src/typo3_src state=link src=typo3_src-{{ typo3_version }}
