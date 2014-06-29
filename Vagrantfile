@@ -12,13 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "chef/debian-7.4"
 
-  config.vm.synced_folder ".", "/vagrant",
-    type: "rsync",
-    rsync__args: ['--links'],
-    rsync__exclude: ".git/",
-    owner: "www-data",
-    group: "www-data"
-
   # Provision your virtual machine with ansible.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provision.yaml"
