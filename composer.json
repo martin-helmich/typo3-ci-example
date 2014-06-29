@@ -14,7 +14,8 @@
     },
     "require-dev": {
         "helmich/typo3-typoscript-lint": "*",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "phing/phing": "*"
     },
     "config": {
         "bin-dir": "bin"

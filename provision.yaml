@@ -20,8 +20,10 @@
     - name: Install PHP 5.4 repository
       apt_repository: repo="deb http://packages.dotdeb.org wheezy all" state=present
       when: php_version == "5.4"
-    - name: Install PHP packages
-      apt: name={{ item }} state=present update_cache=yes
+    - name: Install backports repository
+      apt_repository: repo="deb http://ftp.us.debian.org/debian wheezy-backports main" state=present
+    - name: Install packages
+      apt: name={{ item }} state=present
       with_items:
         - apache2
         - php5
@@ -30,6 +32,16 @@
         - libapache2-mod-php5
         - mysql-server
         - python-mysqldb
+        - nodejs-legacy
+    - name: Install NPM
+      shell: curl --insecure https://www.npmjs.org/install.sh | bash
+      args:
+        creates: /usr/bin/npm
+    - name: Install node packages
+      npm: name={{ item }} global=yes state=present
+      with_items:
+        - jshint
+        - csslint
 
     # Database setup
     - copy: src=provision/database.sql dest=/tmp

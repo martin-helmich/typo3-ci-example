@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TYPO3 CI example" default="verify" basedir=".">
+
+	<!-- PROPERTIES -->
+        <!-- ========== -->
+	<property name="srcdir" value="${project.basedir}/src"/>
+	<property name="builddir" value="${project.basedir}/build"/>
+	<property name="bindir" value="${project.basedir}/bin"/>
+
+	<property name="exe.tslint" value="${bindir}/typoscript-lint"/>
+
+	<!-- FILE SETS -->
+        <!-- ========= -->
+
+	<fileset id="files.typoscript" dir="${srcdir}">
+		<include name="typo3conf/ext/helmbert_bootstrapsite/Configuration/Typoscript/**.txt"/>
+	</fileset>
+	<fileset id="files.phpunit" dir="${srcdir}">
+		<include name="typo3/sysext/fluid/Tests"/>
+	</fileset>
+	
+	<!-- TARGETS -->
+        <!-- ======= -->
+
+	<target name="prepare">
+		<echo msg="Creating required build directories."/>
+		<mkdir dir="${builddir}/logs/checkstyle"/>
+		<mkdir dir="${builddir}/logs/junit"/>
+	</target>
+
+	<target name="verify">
+		<echo msg="Verifying your TYPO3 project."/>
+		<phingcall target="verify-phpunit"/>
+		<phingcall target="verify-typoscript"/>
+	</target>
+
+	<target name="verify-typoscript" depends="prepare">
+		<apply executable="${exe.tslint}" parallel="true" checkreturn="true">
+			<arg value="--format=xml"/>
+			<arg value="--output=${builddir}/logs/checkstyle/typoscript.xml"/>
+			<arg value="--exit-code"/>
+		</apply>
+	</target>
+
+	<target name="verify-phpunit" depends="prepare">
+		<exec executable="php" dir="${srcdir}" checkreturn="true" passthru="true">
+			<arg value="typo3/cli_dispatch.phpsh"/>
+			<arg value="phpunit"/>
+			<arg value="--log-junit=${builddir}/logs/junit/phpunit.xml"/>
+			<arg value="typo3/sysext/fluid/Tests"/>
+		</exec>
+	</target>
+</project>
