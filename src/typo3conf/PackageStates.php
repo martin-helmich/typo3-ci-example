@@ -488,10 +488,17 @@ return array (
     ),
     'phpunit' => 
     array (
-      'manifestPath' => '',
-      'composerName' => 'typo3/cms-phpunit',
       'state' => 'active',
       'packagePath' => 'typo3conf/ext/phpunit/',
+      'classesPath' => 'Classes/',
+      'suggestions' => 
+      array (
+      ),
+    ),
+    'helmbert_bootstrapsite' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/helmbert_bootstrapsite/',
       'classesPath' => 'Classes/',
       'suggestions' => 
       array (
