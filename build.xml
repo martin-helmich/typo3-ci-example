@@ -38,7 +38,7 @@
 		<apply executable="${exe.tslint}" parallel="true" checkreturn="true">
 			<arg value="--format=xml"/>
 			<arg value="--output=${builddir}/logs/checkstyle/typoscript.xml"/>
-			<arg value="--exit-code"/>
+			<fileset refid="files.typoscript"/>
 		</apply>
 	</target>
 

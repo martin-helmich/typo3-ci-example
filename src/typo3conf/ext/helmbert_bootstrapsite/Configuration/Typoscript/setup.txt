@@ -1,49 +1,49 @@
 config {
-	language = de
-	locale_all = de_DE
+    language = de
+    locale_all = de_DE
 }
 
 page = PAGE
 page {
-	includeCSS {
-		bootstrap = EXT:helmbert_bootstrapsite/Resources/Public/Bootstrap/css/bootstrap.min.css
-		bootstrap_responsive = EXT:helmbert_bootstrapsite/Resources/Public/Bootstrap/css/bootstrap-responsive.min.css
-	}
-	includeJS {
-		jquery = EXT:helmbert_bootstrapsite/Resources/Public/Jquery/jquery-1.9.1.min.js
-		bootstrap = EXT:helmbert_bootstrapsite/Resources/Public/Bootstrap/js/bootstrap.min.js
-	}
+    includeCSS {
+        bootstrap = EXT:helmbert_bootstrapsite/Resources/Public/Bootstrap/css/bootstrap.min.css
+        bootstrap_responsive = EXT:helmbert_bootstrapsite/Resources/Public/Bootstrap/css/bootstrap-responsive.min.css
+    }
+    includeJS {
+        jquery = EXT:helmbert_bootstrapsite/Resources/Public/Jquery/jquery-1.9.1.min.js
+        bootstrap = EXT:helmbert_bootstrapsite/Resources/Public/Bootstrap/js/bootstrap.min.js
+    }
 
-	typeNum = 0
-	bodyTag = <body style="margin-top: 60px;">
+    typeNum = 0
+    bodyTag = <body style="margin-top: 60px;">
 
-	10 = FLUIDTEMPLATE
-	10 {
-		file = EXT:helmbert_bootstrapsite/Resources/Private/Templates/Page/Index.html
-		layoutRootPath = EXT:helmbert_bootstrapsite/Resources/Private/Layouts/
-		partialRootPath = EXT:helmbert_bootstrapsite/Resources/Private/Partials/
+    10 = FLUIDTEMPLATE
+    10 {
+        file = EXT:helmbert_bootstrapsite/Resources/Private/Templates/Page/Index.html
+        layoutRootPath = EXT:helmbert_bootstrapsite/Resources/Private/Layouts/
+        partialRootPath = EXT:helmbert_bootstrapsite/Resources/Private/Partials/
 
-		variables {
-			siteName = TEXT
-			siteName.value = Extbase/Fluid
+        variables {
+            siteName = TEXT
+            siteName.value = Extbase/Fluid
 
-			navigation = HMENU
-			navigation {
-				special = directory
-				special.value = 1
-			}
-			navigation.1 = TMENU
-			navigation.1 {
-				wrap = <ul class="nav"> | </ul>
+            navigation = HMENU
+            navigation {
+                special = directory
+                special.value = 1
+            }
+            navigation.1 = TMENU
+            navigation.1 {
+                wrap = <ul class="nav"> | </ul>
 
-				NO = 1
-				NO.linkWrap = <li> | </li>
+                NO = 1
+                NO.linkWrap = <li> | </li>
 
-				ACT < .NO
-				ACT.linkWrap = <li class="active"> | </li>
-			}
+                ACT < .NO
+                ACT.linkWrap = <li class="active"> | </li>
+            }
 
-			content < styles.content.get
-		}
-	}
+            content < styles.content.get
+        }
+    }
 }
