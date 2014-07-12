@@ -12,5 +12,6 @@ install:
 before_script:
   - mysql -e 'CREATE DATABASE typo3;'
   - mysql typo3 < ${TRAVIS_BUILD_DIR}/provision/database.sql 
-script: 
+script:
+  - cd ${TRAVIS_BUILD_DIR}
   - bin/phing
