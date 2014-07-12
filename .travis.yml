@@ -1,0 +1,16 @@
+language: php
+php: [5.5, 5.4]
+env:
+  - TYPO3_VERSION=master
+  - TYPO3_VERSION=TYPO3_6-2-3
+  - TYPO3_VERSION=TYPO3_6-1-9
+  - TYPO3_VERSION=TYPO3_6-0-14
+services: [mysql]
+install:
+  - composer install
+  - mkdir ${TRAVIS_BUILD_DIR}/src/typo3_src-${TYPO3_VERSION} && cd ${TRAVIS_BUILD_DIR}/src/typo3_src-${TYPO3_VERSION} && wget https://github.com/TYPO3/TYPO3.CMS/archive/${TYPO3_VERSION}.tar.gz && tar --strip-components=1 -xzf ${TYPO3_VERSION}.tar.gz
+before_script:
+  - mysql -e 'CREATE DATABASE typo3;'
+  - mysql typo3 < provision/database.sql 
+script: 
+  - bin/phing
