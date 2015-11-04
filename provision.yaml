@@ -34,7 +34,7 @@
         - python-mysqldb
         - nodejs-legacy
     - name: Install NPM
-      shell: curl --insecure https://www.npmjs.org/install.sh | bash
+      shell: curl -L https://www.npmjs.org/install.sh | sh
       args:
         creates: /usr/bin/npm
     - name: Install node packages
