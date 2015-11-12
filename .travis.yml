@@ -2,9 +2,7 @@ language: php
 php: [5.5, 5.4]
 env:
   - TYPO3_VERSION=master
-  - TYPO3_VERSION=TYPO3_6-2-3
-  - TYPO3_VERSION=TYPO3_6-1-9
-  - TYPO3_VERSION=TYPO3_6-0-14
+  - TYPO3_VERSION=TYPO3_6-2-15
 services: [mysql]
 install:
   - composer install
@@ -12,7 +10,7 @@ install:
   - ln -nfs ${TRAVIS_BUILD_DIR}/src/typo3_src-${TYPO3_VERSION} ${TRAVIS_BUILD_DIR}/src/typo3_src
 before_script:
   - mysql -e 'CREATE DATABASE typo3;'
-  - mysql typo3 < ${TRAVIS_BUILD_DIR}/provision/database.sql 
+  - mysql typo3 < ${TRAVIS_BUILD_DIR}/provision/database.sql
 script:
   - cd ${TRAVIS_BUILD_DIR}
   - bin/phing
