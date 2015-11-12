@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "chef/debian-7.4"
+  config.vm.box = "debian/wheezy64"
 
   # Provision your virtual machine with ansible.
   config.vm.provision "ansible" do |ansible|
