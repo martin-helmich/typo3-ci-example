@@ -56,6 +56,12 @@
       notify: [restart apache]
     - copy: src=provision/apache_vhost dest=/etc/apache2/sites-available/default
       notify: [restart apache]
+    - lineinfile: dest=/etc/apache2/envvars regexp="^export APACHE_RUN_USER=.*" line="export APACHE_RUN_USER=vagrant"
+      notify: [restart apache]
+    - lineinfile: dest=/etc/apache2/envvars regexp="^export APACHE_RUN_GROUP=.*" line="export APACHE_RUN_GROUP=vagrant"
+      notify: [restart apache]
+    - name: DIE FUCKING APACHE DIE DIE DIE
+      file: path=/var/lock/apache2 owner=vagrant group=vagrant
 
     # TYPO3 setup
     - shell: mkdir -p /vagrant/src/typo3_src-{{ typo3_version }} && cd /vagrant/src/typo3_src-{{ typo3_version }} && wget https://github.com/TYPO3/TYPO3.CMS/archive/{{ typo3_version }}.tar.gz && tar --strip-components=1 -xzf {{ typo3_version }}.tar.gz && chown vagrant . -R
