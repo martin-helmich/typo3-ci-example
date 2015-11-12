@@ -12,6 +12,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "debian/wheezy64"
 
+  # Example config for exposing the HTTP port.
+  # Don't use this in your CI environment when multiple builds run in parallel
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
   # Provision your virtual machine with ansible.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provision.yaml"
